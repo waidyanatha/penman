@@ -3,9 +3,9 @@
 
 ''' Initialize with default environment variables '''
 __name__ = "__propAttr__"
-__package__= "etp"
-__module__ = "crypto"
-__app__ = "mining"
+__package__= "scrape"
+__module__ = "topics"
+__app__ = "wrangler"
 __ini_fname__ = "app.ini"
 __conf_fname__ = "app.cfg"
 

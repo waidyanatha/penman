@@ -1,0 +1,16 @@
+research_content_task:
+  description: >
+    1. Use a search tool to collect relavent content for topics, title, and aptitude.
+    2. Prioritize the latest trends and noteworthy content from sources on topics.
+    3. Realize the aptitude of the researcher when collecting the content.
+    4. Develop a detailed content outline with content divided into subtitles.
+    5. Include SEO keywords and relevant data or referrences.
+    
+    topics: {topics}
+    title : {title}
+    aptitude: {aptitude}
+    sources : {sources}
+  expected_output: >
+    A comprehensive content planner document with conextual subtitles for topics and title that emulates the skills and knowledge of person with {aptitude} to generate an course article
+  agent: topics_researcher 
+  output_file: wrangler/data/topic/scrape/topic_research.txt
