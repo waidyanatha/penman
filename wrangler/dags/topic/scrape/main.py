@@ -13,10 +13,19 @@ def run():
         "topics": ['common alerting protocol','ITU X.1303'],
         "title" : 'why common alerting protocol is essential for early warning',
         "aptitude":'Unversity undergraduate junior in public safety administration',
-        "sources" : ['peer-reviewed articles','technical reports','blogs','news']
+        "sources" : ['peer-reviewed articles','technical reports','blogs','news'],
+        "article_type":'technical report',
+        "word_count" : 300
     }
 #     clsCrew = cr.crewWorkLoads()
-    clsCrew.crew().kickoff(inputs=inputs)
+    crew_output = clsCrew.crew().kickoff(inputs=inputs)
+#     print(f"Raw Output: {crew_output.raw}")
+#     if crew_output.json_dict:
+#         print(f"JSON Output: {json.dumps(crew_output.json_dict, indent=2)}")
+#     if crew_output.pydantic:
+#         print(f"Pydantic Output: {crew_output.pydantic}")
+    print(f"Tasks Output ...: {crew_output.tasks_output}")
+#     print(f"Token Usage: {crew_output.token_usage}")
 
 
 ''' Function --- LOGGER ---
@@ -101,6 +110,11 @@ def main():
         proj_dir = os.path.abspath(cwd).split(f'{__app__}/')[0]
         sys.path.insert(1,proj_dir)
 
+#         litellm.set_verbose=True
+#         if not os.environ.get['LITELLM_LOG']: 
+#             os.environ['LITELLM_LOG'] = 'DEBUG'
+        litellm.json_logs = True
+
         ''' innitialize the logger '''
         _log_dir=os.path.join(proj_dir,__app__,'logs',__module__,__package__)
         logger = get_logger_handle(
@@ -177,18 +191,19 @@ if __name__ == "__main__":
         ''' standard python packages '''
         import os
         import sys
-        from dotenv import load_dotenv
-        load_dotenv()
+#         from dotenv import load_dotenv
+#         load_dotenv()
         import logging
         import traceback
+        import litellm
         import functools
         import configparser
         import argparse
-        
+
         from datetime import datetime, date, timedelta
-        import pandas as pd
+#         import pandas as pd
         import json
-        from schema import Schema, And, Use, Optional, SchemaError
+#         from schema import Schema, And, Use, Optional, SchemaError
 
         cwd=os.path.dirname(__file__)
         proj_dir = os.path.abspath(cwd).split(f'{__app__}/')[0]

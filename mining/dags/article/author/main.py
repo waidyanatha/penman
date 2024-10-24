@@ -12,8 +12,10 @@ def run():
     inputs = {
         "topics": ['common alerting protocol','ITU X.1303'],
         "title" : 'why common alerting protocol is essential for early warning',
-        "aptitude":'Unversity undergraduate junior in public safety administration',
-        "sources" : ['peer-reviewed articles','technical reports','blogs','news']
+        "aptitude":'A Chinese native unversity undergraduate junior, a public safety administration major, studying at University of Toronto',
+        "article_type":'technical report',
+        "word_count" : 3000,
+        "format" : '.docx',
     }
 #     clsCrew = cr.crewWorkLoads()
     clsCrew.crew().kickoff(inputs=inputs)
@@ -112,7 +114,7 @@ def main():
         logger.info("Initializing Main in %s",__name__)
 
         ''' import portfolio build classes '''
-        from wrangler.modules.topic.scrape import crew as cr
+        from mining.modules.article.author import crew as cr
         clsCrew = cr.aiWorkLoads()
 
 #         ''' define args '''
@@ -165,9 +167,9 @@ def main():
 if __name__ == "__main__":
     ''' Initialize with default environment variables '''
     __name__ = "main"
-    __package__ = "scrape"
-    __module__ = "topic"
-    __app__ = "wrangler"
+    __package__ = "author"
+    __module__ = "article"
+    __app__ = "mining"
     __ini_fname__ = "app.ini"
     __conf_fname__ = "app.cfg"
     __tmp_data_dir_ext__ = "tmp/"

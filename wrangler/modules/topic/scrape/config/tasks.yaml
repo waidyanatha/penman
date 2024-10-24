@@ -1,16 +1,71 @@
+plan_outline_task:
+  description: >
+    execute in the proposed order:
+    1. Use the acquired content for the {topics} and {title}.
+    2. Extract a contectual summary sentence to use as bullet-point in the outline.
+    3. Create contectutal and meaningfule subtitles by extending SEO keywords
+    4. Develop a detailed content outline with the bullet-point sentences presented
+        for each subtitle.
+    5. Include SEO keywords and relevant data or referrences.
+    
+    topics: {topics}
+    title : {title}
+    aptitude : {aptitude}
+    
+  expected_output: >
+    A comprehensive content planner document with conextual subtitles and bullet-point outline
+
+    Example output:
+    
+    Early Warning System Information Standards\n\n
+
+        Introduction:\n
+        1. Definition of Common Alerting Protocol (CAP)\n
+        2. Overview of CAP's role in early warning systems\n
+        3. Brief explanation of ITU-X.1303 and its relationship with CAP\n\n
+
+        Importance of EWS standards' :\n
+        1. Standardization\n
+            1.1 Standardized format for alert messages\n
+            1.2. Consistent alert interpretation across emergency management agencies and systems\n\
+        2. Interoperability\n
+            2.1 Improved collaboration among emergency management agencies\n
+            2.2 Seamless information exchange\n\
+        3. Automation\n
+            3.1 Faster response times\n
+            3.2 Reduced human error\n\n
+
+        Geographic Targeting and Language Support\n
+        ...\n\n
+
+        Conclusion:
+        1. Recap of the critical role of CAP and ITU-X.1303 in early warning systems
+        2. Emphasis on the benefits of CAP for emergency management agencies and the public
+
+    SEO keywords: CAP, ITU-X 1303, ...
+
+  output_file: "wrangler/data/topic/scrape/topic_outline.txt"
+  output_format: JSON
+#   agent: article_planner 
+
 research_content_task:
   description: >
-    1. Use a search tool to collect relavent content for topics, title, and aptitude.
-    2. Prioritize the latest trends and noteworthy content from sources on topics.
+    Execute in the given order:
+    1. Use a search tool to collect relavent content for {topics} relevant to the {title}  
+        and person with knowledge and skill level of a {aptitude}.
+    2. Prioritize the latest trends and noteworthy content from {sources} on {topics}.
     3. Realize the aptitude of the researcher when collecting the content.
-    4. Develop a detailed content outline with content divided into subtitles.
-    5. Include SEO keywords and relevant data or referrences.
+    4. Collect substantial facts and content to write a {word_count} word article
+    4. Subdivide similar content into paragraphs and sections to generate the {article_type} outline
+    5. Include referrences and sources from which the researched content was collected
     
     topics: {topics}
     title : {title}
     aptitude: {aptitude}
     sources : {sources}
+    article_type:{article_type}
+    word_count : {word_count}
+
   expected_output: >
-    A comprehensive content planner document with conextual subtitles for topics and title that emulates the skills and knowledge of person with {aptitude} to generate an course article
-  agent: topics_researcher 
-  output_file: wrangler/data/topic/scrape/topic_research.txt
+    A comprehensive research content from {sources} that emulates the skills and knowledge of person with {aptitude} to generate a {word_count} {article_type}
+#   agent: topics_researcher

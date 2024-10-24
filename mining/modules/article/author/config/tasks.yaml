@@ -1,16 +1,18 @@
-research_content_task:
+author_article_task:
   description: >
-    1. Use a search tool to collect relavent content for topics, title, and aptitude.
-    2. Prioritize the latest trends and noteworthy content from sources on topics.
-    3. Realize the aptitude of the researcher when collecting the content.
-    4. Develop a detailed content outline with content divided into subtitles.
-    5. Include SEO keywords and relevant data or referrences.
+    1. Use the content plan to craft a compelling {article_type} on {topics} and {title}
+    2. Incorporate SEO keywords naturally
+    3. Sections/Subtitles are properly named in an engaging manner
+    4. Ensure the post is structured with an engaging introduction, insightful body, 
+    and a summarizing conclusion
+    5. Proofread for grammatical errors and alignment with the {aptitude}
     
     topics: {topics}
     title : {title}
-    aptitude: {aptitude}
-    sources : {sources}
+    article_type:{article_type}
+    aptitude:{aptitude}
+    format : {format}
+    word_count: {word_count}
   expected_output: >
-    A comprehensive content planner document with conextual subtitles for topics and title that emulates the skills and knowledge of person with {aptitude} to generate an course article
-  agent: topics_researcher 
-  output_file: wrangler/data/topic/scrape/topic_research.txt
+    A well-written {article_type}, with minimum {word_count} words, in a {format} format, ready for publication, each section should have 2 or 3 paragraphs.
+  agent: article_author
