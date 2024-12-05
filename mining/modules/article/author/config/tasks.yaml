@@ -1,18 +1,57 @@
-author_article_task:
+load_outline_task:
   description: >
-    1. Use the content plan to craft a compelling {article_type} on {topics} and {title}
-    2. Incorporate SEO keywords naturally
-    3. Sections/Subtitles are properly named in an engaging manner
-    4. Ensure the post is structured with an engaging introduction, insightful body, 
-    and a summarizing conclusion
-    5. Proofread for grammatical errors and alignment with the {aptitude}
-    
+    1. Apply the tool to read the content from the text file with {fname}
+    2. Extract a single comprehensive outline from the content
+    3. Share the outline constructed from the content
+
     topics: {topics}
     title : {title}
-    article_type:{article_type}
-    aptitude:{aptitude}
-    format : {format}
-    word_count: {word_count}
+    fname : {fname}
+
   expected_output: >
-    A well-written {article_type}, with minimum {word_count} words, in a {format} format, ready for publication, each section should have 2 or 3 paragraphs.
-  agent: article_author
+    An outline 
+  # agent: outline_retriever
+
+# load_research_task:
+#   description: >
+#     1. Use the research content stored as embeddings that was developed by the content plannars
+#         and crafted from the research content to craft a compelling {article_type} on {topics} with {title}
+#     2. Use or revise the Sections/Subtitles, in the outline, are properly named in an engaging manner
+#     3. Read the research content embeddings to request for research content driven by the outline
+#     4. Control the tone of writing and depth of knowledge that resonates with an author of {aptitude}
+#     5. Use an appropriate propotionate distribution of the {word_count} words into each section/subtitle such that the entire document has {word_count} words total.
+    
+#     topics: {topics}
+#     title : {title}
+#     article_type:{article_type}
+#     aptitude:{aptitude}
+#     format : {format}
+#     word_count: {word_count}
+#   expected_output: >
+#     A well-written {article_type}, with minimum {word_count} words, in a {format} format, ready for publication, each section should have 2 or 3 paragraphs.
+#   # agent: outline_retriever
+
+# author_article_task:
+#   description: >
+#     1. Use the content plan, comprising an outline and the research content, to craft a compelling {article_type} on {topics} with {title}
+#     2. Use or revise the Sections/Subtitles, in the outline, are properly named in an engaging manner
+#     3. Read the research content embeddings to request for research content driven by the outline
+#     4. Control the tone of writing and depth of knowledge that resonates with an author of {aptitude}
+#     5. Use an appropriate propotionate distribution of the {word_count} words into each section/subtitle such that the entire document has {word_count} words total.
+    
+#     topics: {topics}
+#     title : {title}
+#     article_type:{article_type}
+#     aptitude:{aptitude}
+#     format : {format}
+#     word_count: {word_count}
+#   expected_output: >
+#     A well-written {article_type}, with minimum {word_count} words, in a {format} format, ready for publication, each section should have 2 or 3 paragraphs.
+#   # agent: article_author
+
+# publish_draft_task:
+#   description: >
+#     ...
+#   expected_output: >
+#     A well-written {article_type}, with minimum {word_count} words, in a {format} format, ready for publication, each section should have 2 or 3 paragraphs.
+#   # agent: outline_retriever
