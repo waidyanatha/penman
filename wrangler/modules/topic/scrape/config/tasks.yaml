@@ -11,6 +11,7 @@ plan_outline_task:
     topics: {topics}
     title : {title}
     aptitude : {aptitude}
+    job: {job_id}
     
   expected_output: >
     A comprehensive content planner document with conextual subtitles and bullet-point outline
@@ -44,9 +45,7 @@ plan_outline_task:
 
     SEO keywords: CAP, ITU-X 1303, ...
 
-  output_file: "wrangler/data/topic/scrape/topic_outline.txt"
-  output_format: JSON
-#   agent: article_planner 
+# output_file: "/home/nuwan/workspace/penman/wrangler/data/topic/scrape/topic_outline.txt"
 
 research_content_task:
   description: >
@@ -68,4 +67,5 @@ research_content_task:
 
   expected_output: >
     A comprehensive research content from {sources} that emulates the skills and knowledge of person with {aptitude} to generate a {word_count} {article_type}
-#   agent: topics_researcher
+
+  output_file: "/home/nuwan/workspace/penman/wrangler/data/topic/scrape/research_content.txt"
