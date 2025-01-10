@@ -1,0 +1,44 @@
+plan_referrences_task:
+  description: >
+    Execute in the given order:
+    1. Apply the search tool on the {website} to collect all the {topic} published document urls, titles, 
+        and author information
+    2. Collect all all the published documents pertaining to the {topic}
+    3. Create a referrence list comprising the document title, hyperling (url), and author information
+    4. If possible, subdivide the list into subsections with sub categorical titles
+    
+    topic:  {topic}
+    website : {website}
+    article_type:{article_type}
+
+  expected_output: >
+    A comprehensive referrence list of {topic} published documments from {website}
+#   agent: topics_researcher
+
+store_content_task:
+  description: >
+    execute in the proposed order:
+    1. Use the {topic} published document reference list.
+    2. For each listed document, use the search tool and hyperlink (url) to:
+        a. read the document text
+        b. convert the text to embeddings
+        c. store the embeddings in the vector store
+    4. Develop a summary of the stored content.
+    
+    topic:  {topic}
+    website : {website}
+    article_type:{article_type}
+    
+  expected_output: >
+    A summary report of the read, converted, and stored {topic} data
+
+    Example output:
+    
+    {topic} published on {website} \n\n
+
+    Total number of reports: 
+    Number of pages: 
+
+  output_file: "wrangler/data/parliment/scrape/{topic}_storage_summary.txt"
+  output_format: text
+#   agent: article_planner 
